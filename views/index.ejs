@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title><%= title %></title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+  </head>
+  <body>
+  <section class="section">
+    <div class="container">
+        <h1 class="title">
+            Daftar Mahasiswa
+        </h1>
+        <a href="/tambah" class="button is-primary">Tambah Data</a>
+    </div>
+    <div class="container mt-5">
+        <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
+            <thead>
+                <tr>
+                    <th>No</th>
+                    <th>NIM</th>
+                    <th>Nama</th>
+                    <th>Jurusan</th>
+                    <th>Aksi</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% mahasiswas.forEach((mahasiswa, index) => { %>
+                    <tr>
+                        <td><%= index + 1 %></td>
+                        <td><%= mahasiswa.nim %></td>
+                        <td><%= mahasiswa.nama %></td>
+                        <td><%= mahasiswa.jurusan %></td>
+                        <td>
+                            <a href="/edit/<%= mahasiswa.nim %>" class="button is-info is-small">Edit</a>
+                            <a href="/hapus/<%= mahasiswa.nim %>" class="button is-danger is-small">Delete</a>
+                        </td>
+                    <tr>
+                <% }) %>
+            </tbody>
+        </table>
+    </div>
+  </section>
+  </body>
+</html>
